@@ -16,16 +16,24 @@
 
     <img src="/static/{{ image_path }}" class="result-img">
 
-
+    <!-- Model Prediction Text -->
     <h2 class="result-text {{ label }}">
         {{ label }} ({{ confidence }}%)
     </h2>
 
+    <!-- Turbidity Value -->
     <h3 style="margin-top: 20px;">Estimated Turbidity:</h3>
     <p style="font-size: 20px; color:#a8e6ff;">{{ turbidity }}</p>
 
-    <h3>Turbidity Range:</h3>
+    <!-- Turbidity Range Classification -->
+    <h3>Turbidity Range Classification:</h3>
     <p style="font-size: 20px; color:#a8e6ff;">{{ turbidity_range }}</p>
+
+    <!-- What turbidity means -->
+    <div style="margin-top: 20px; font-size: 16px; color:#d4f5ff;">
+        <strong>Note:</strong> Turbidity tells how clear or cloudy the water is.  
+        Higher turbidity means more dirt, particles, or impurities in the water.
+    </div>
 
     <a href="/start" class="back-btn" style="margin-top: 20px;">Analyse Another Image</a>
 </div>

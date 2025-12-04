@@ -33,13 +33,6 @@
             cursor: pointer;
         }
 
-        /* Turbidity Note */
-        .validation-note {
-            text-align: center;
-            font-size: 18px;
-            margin-top: 40px;
-        }
-
         /* Modal Styling */
         .modal {
             position: fixed;
@@ -106,7 +99,6 @@
         <p>Tap to know more</p>
     </div>
 
-    <!-- Existing Cards -->
     <div class="glass-card feature-card" onclick="openModal('modal1')">
         <h3>📷 Image Detection</h3>
         <p>Tap to know more</p>
@@ -129,37 +121,17 @@
 
 </div>
 
-<!-- TURBIDITY CARD -->
+<!-- TURBIDITY CARD (ONLY THIS KEPT) -->
 <div class="glass-card turbidity-card" onclick="openModal('modal5')">
     <h3>💧 Turbidity Ranges for Water Quality</h3>
     <p>Tap to understand turbidity & calculation</p>
 </div>
 
-<!-- TABLE LABELS -->
-<p class="validation-note">Lab-validated turbidity values ensure model accuracy.</p>
-<p class="validation-note">Turbidity Ranges for Water Quality</p>
-
-<!-- TURBIDITY TABLE -->
-<table>
-    <caption>Lab-Tested Turbidity Values (NTU)</caption>
-    <thead>
-    <tr>
-        <th>Water Type</th>
-        <th>Turbidity Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="Clean"><td>Clean 💧</td><td>0 NTU</td></tr>
-    <tr class="Moderate"><td>Moderate 🌊</td><td>0.1 – 3 NTU</td></tr>
-    <tr class="Dirty"><td>Dirty 🛑</td><td>Above 3 NTU</td></tr>
-    </tbody>
-</table>
-
+<!-- Removed table here (as per your request) -->
 
 <!-- FAQ TITLE -->
 <h2 class="section-title">Frequently Asked Questions</h2>
 
-<!-- FAQ CARDS -->
 <div class="faq-cards">
 
     <div class="glass-card" onclick="openModal('faq1')">
@@ -195,95 +167,55 @@
         <h2>📘 Project Description</h2>
         <p>
             This project is an AI-based water quality assessment system that uses  
-            a Convolutional Neural Network (CNN) to classify images of water  
-            into Clean, Moderate, Dirty, or Not Water.  
-            It is designed to help automate water inspection with instant results.
+            a Convolutional Neural Network (CNN) to classify water images into  
+            Clean, Moderate, Dirty, or Not Water.
         </p>
         <button class="close-btn" onclick="closeModal('project_desc')">Close</button>
     </div>
 </div>
 
-<!-- Existing Popups -->
-<div id="modal1" class="modal"><div class="modal-content"><h2>📷 Image Detection</h2><p>Uploaded images go through preprocessing to improve accuracy.</p><button class="close-btn" onclick="closeModal('modal1')">Close</button></div></div>
+<!-- Existing Modals -->
+<div id="modal1" class="modal"><div class="modal-content"><h2>📷 Image Detection</h2><p>Uploaded images go through preprocessing for accuracy.</p><button class="close-btn" onclick="closeModal('modal1')">Close</button></div></div>
 
- <!-- MODAL 2 — CNN Model With Classification Snippet -->
 <div id="modal2" class="modal">
     <div class="modal-content">
         <h2>🔬 CNN Model – How It Predicts</h2>
-
         <p style="text-align:left; font-size:15px; line-height:1.5;">
-            The CNN processes your uploaded image and calculates the probability
-            for each class: <b>Clean</b>, <b>Moderate</b>, <b>Dirty</b>, and <b>Not_Water</b>.
-            <br><br>
-            The model chooses the class with the highest probability.  
-            If confidence is less than <b>60%</b>, it automatically outputs <b>Not_Water</b>.
+            The CNN outputs probabilities for Clean, Moderate, Dirty, and Not_Water.  
+            The highest probability becomes the result.
         </p>
-
-        <div style="
-            background: rgba(0,0,0,0.4);
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 15px;
-            text-align:left;
-            font-size:14px;
-            font-family: monospace;
-            overflow-x: auto;
-        ">
-<pre style="white-space: pre-wrap; color:#e0faff;">
-
-# Image → Array
-img = image.load_img(filepath, target_size=(128,128))
-img_array = image.img_to_array(img) / 255.0
-img_array = np.expand_dims(img_array, axis=0)
-
-# CNN Prediction
-preds = model.predict(img_array)
-confidence = float(np.max(preds))
-pred_index = int(np.argmax(preds))
-
-pred_label = class_labels[str(pred_index)]
-
-# Rule: If confidence < 60% → Not_Water
-if confidence < 0.60:
-    pred_label = "Not_Water"
-
-</pre>
-        </div>
-
         <button class="close-btn" onclick="closeModal('modal2')">Close</button>
     </div>
 </div>
 
+<div id="modal3" class="modal"><div class="modal-content"><h2>🌊 User Interface</h2><p>Animated underwater UI.</p><button class="close-btn" onclick="closeModal('modal3')">Close</button></div></div>
 
-<div id="modal3" class="modal"><div class="modal-content"><h2>🌊 User Interface</h2><p>Designed with underwater-themed animation for smooth experience.</p><button class="close-btn" onclick="closeModal('modal3')">Close</button></div></div>
+<div id="modal4" class="modal"><div class="modal-content"><h2>⚡ Fast Results</h2><p>Model predicts instantly.</p><button class="close-btn" onclick="closeModal('modal4')">Close</button></div></div>
 
-<div id="modal4" class="modal"><div class="modal-content"><h2>⚡ Fast Results</h2><p>Model returns prediction instantly with confidence score.</p><button class="close-btn" onclick="closeModal('modal4')">Close</button></div></div>
-
+<!-- Turbidity Modal -->
 <div id="modal5" class="modal">
     <div class="modal-content">
         <h2>💧 Turbidity Explained</h2>
         <p>
-            Turbidity describes how clear or cloudy water is.<br><br>
-            • Clean Water → 0 NTU<br>
-            • Moderate Water → 0.1 – 3 NTU<br>
-            • Dirty Water → Above 3 NTU<br><br>
-            The CNN calculates turbidity using:<br><br>
-            <b>Weighted Formula:</b><br>
-            turbidity = (Pclean × 0) + (Pmoderate × 1.55) + (Pdirty × 5)
+            Turbidity measures water cloudiness.<br><br>
+            • Clean → 0 NTU<br>
+            • Moderate → 0.1–3 NTU<br>
+            • Dirty → Above 3 NTU<br><br>
+            CNN Estimation Formula:<br>
+            <b>turbidity = Pclean × 0 + Pmoderate × 1.55 + Pdirty × 5</b>
         </p>
         <button class="close-btn" onclick="closeModal('modal5')">Close</button>
     </div>
 </div>
-
 
 <!-- FAQ Modals -->
 <div id="faq1" class="modal"><div class="modal-content"><h2>What does the system do?</h2><p>It predicts water quality using AI.</p><button class="close-btn" onclick="closeModal('faq1')">Close</button></div></div>
 
 <div id="faq2" class="modal"><div class="modal-content"><h2>Output Classes</h2><p>Clean, Moderate, Dirty, Not Water.</p><button class="close-btn" onclick="closeModal('faq2')">Close</button></div></div>
 
-<div id="faq3" class="modal"><div class="modal-content"><h2>Fake Image Detection</h2><p>Non-water images are classified as Not_Water.</p><button class="close-btn" onclick="closeModal('faq3')">Close</button></div></div>
+<div id="faq3" class="modal"><div class="modal-content"><h2>Fake Image Detection</h2><p>Non-water → Not_Water.</p><button class="close-btn" onclick="closeModal('faq3')">Close</button></div></div>
 
-<div id="faq4" class="modal"><div class="modal-content"><h2>Accuracy</h2><p>Confidence score indicates prediction strength.</p><button class="close-btn" onclick="closeModal('faq4')">Close</button></div></div>
+<div id="faq4" class="modal"><div class="modal-content"><h2>Accuracy</h2><p>Confidence % shows model trust.</p><button class="close-btn" onclick="closeModal('faq4')">Close</button></div></div>
 
 </body>
 </html>

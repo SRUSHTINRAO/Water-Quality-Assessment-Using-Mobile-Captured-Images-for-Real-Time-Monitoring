@@ -88,20 +88,32 @@ def predict():
     turbidity_lower = round(lower_sum, 2)
     turbidity_upper = round(upper_sum, 2)
 
+    # ----------------------------
+    # TURBIDITY RANGE CLASSIFICATION (ADDED)
+    # ----------------------------
     if pred_label == "Not_Water" or confidence < 0.60:
         turbidity_text = "N/A"
         turbidity_range = "N/A"
     else:
         turbidity_text = f"{turbidity_est} NTU"
-        turbidity_range = f"{turbidity_lower} – {turbidity_upper} NTU"
 
+        if turbidity_est < 1:
+            turbidity_range = "Clean (0 – 1 NTU)"
+        elif turbidity_est < 5:
+            turbidity_range = "Moderate (1 – 5 NTU)"
+        else:
+            turbidity_range = "Dirty (5+ NTU)"
+
+    # ----------------------------
+    # RETURN RESULT PAGE
+    # ----------------------------
     return render_template(
         "result.html",
         image_path=f"uploads/{filename}",
         label=pred_label,
         confidence=round(confidence * 100, 2),
         turbidity=turbidity_text,
-        turbidity_range=turbidity_range
+        turbidity_range=turbidity_range  # ADDED
     )
 
 if __name__ == "__main__":
