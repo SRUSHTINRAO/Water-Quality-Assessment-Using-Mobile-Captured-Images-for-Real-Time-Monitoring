@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Water Quality Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+
+<body class="droplet-bg">
+
+<div class="droplet-container"></div>
+
+<div class="glass-card">
+    <h1>Water Quality Assessment</h1>
+    <p>Upload a water sample image to analyze its quality.</p>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <br>
+        <button type="submit">Analyse</button>
+    </form>
+</div>
+
+</body>
+</html>
