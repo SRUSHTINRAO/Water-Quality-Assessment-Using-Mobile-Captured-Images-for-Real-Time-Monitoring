@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Uploads
+static/uploads/*
+
+# System
+.DS_Store
+
+# TensorFlow huge library files
+*.dylib
+
+# Model backups
+*.h5.bak
+*.hdf5.bak
+
+# IDE
+.vscode/
+.idea/
