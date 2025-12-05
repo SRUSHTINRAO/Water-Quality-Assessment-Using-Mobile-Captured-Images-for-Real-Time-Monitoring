@@ -146,8 +146,108 @@
     </div>
 </div>
 
-<!-- Modals (same content as before, optimized width) -->
-{{ ALL YOUR MODALS UNCHANGED, KEEP THEM }}
+<!-- ---------------------------- -->
+<!-- MODALS -->
+<!-- ---------------------------- -->
+
+<!-- Project Description Modal -->
+<div class="modal" id="project_desc">
+    <div class="modal-content">
+        <h3>Project Description</h3>
+        <p>This system allows users to upload images of water samples and get real-time assessment of water quality into categories: Clean, Moderate, Dirty, or Not Water. It uses a CNN model for classification and calculates turbidity ranges.</p>
+        <button class="close-btn" onclick="closeModal('project_desc')">Close</button>
+    </div>
+</div>
+
+<!-- Image Detection Modal -->
+<div class="modal" id="modal1">
+    <div class="modal-content">
+        <h3>Image Detection</h3>
+        <p>The uploaded water image is preprocessed and analyzed using a trained CNN model to classify water quality accurately.</p>
+        <button class="close-btn" onclick="closeModal('modal1')">Close</button>
+    </div>
+</div>
+
+<!-- CNN Model Modal -->
+<div class="modal" id="modal2">
+    <div class="modal-content">
+        <h3>CNN Model</h3>
+        <p>A Convolutional Neural Network (CNN) trained on water images is used for feature extraction and classification of water quality.</p>
+        <button class="close-btn" onclick="closeModal('modal2')">Close</button>
+    </div>
+</div>
+
+<!-- User Interface Modal -->
+<div class="modal" id="modal3">
+    <div class="modal-content">
+        <h3>User Interface</h3>
+        <p>The system provides a responsive interface compatible with both mobile and desktop screens, ensuring easy navigation and image uploads.</p>
+        <button class="close-btn" onclick="closeModal('modal3')">Close</button>
+    </div>
+</div>
+
+<!-- Fast Results Modal -->
+<div class="modal" id="modal4">
+    <div class="modal-content">
+        <h3>Fast Results</h3>
+        <p>Results are computed in real-time using optimized image preprocessing and CNN inference, providing instant turbidity assessment.</p>
+        <button class="close-btn" onclick="closeModal('modal4')">Close</button>
+    </div>
+</div>
+
+<!-- Turbidity Ranges Modal -->
+<div class="modal" id="modal5">
+    <div class="modal-content">
+        <h3>Turbidity Ranges</h3>
+        <p>Clean: 0 – 1 NTU<br>
+           Moderate: 1 – 5 NTU<br>
+           Dirty: 5+ NTU</p>
+        <button class="close-btn" onclick="closeModal('modal5')">Close</button>
+    </div>
+</div>
+
+<!-- FAQ Modals -->
+<div class="modal" id="faq1">
+    <div class="modal-content">
+        <h3>What does this system do?</h3>
+        <p>It classifies water images into Clean, Moderate, Dirty, or Not Water and provides turbidity ranges for analysis.</p>
+        <button class="close-btn" onclick="closeModal('faq1')">Close</button>
+    </div>
+</div>
+
+<div class="modal" id="faq2">
+    <div class="modal-content">
+        <h3>Output Classes</h3>
+        <p>Clean, Moderate, Dirty, and Not Water.</p>
+        <button class="close-btn" onclick="closeModal('faq2')">Close</button>
+    </div>
+</div>
+
+<div class="modal" id="faq3">
+    <div class="modal-content">
+        <h3>Fake Image Detection</h3>
+        <p>The system can reject non-water images and outputs "Not Water" if the uploaded image is invalid.</p>
+        <button class="close-btn" onclick="closeModal('faq3')">Close</button>
+    </div>
+</div>
+
+<div class="modal" id="faq4">
+    <div class="modal-content">
+        <h3>Accuracy</h3>
+        <p>The CNN model achieves high accuracy on test datasets and real-world images. Confidence levels above 60% are considered valid predictions.</p>
+        <button class="close-btn" onclick="closeModal('faq4')">Close</button>
+    </div>
+</div>
+
+<script>
+function openModal(id) {
+    document.getElementById(id).style.display = "flex";
+}
+
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+</script>
 
 </body>
 </html>
