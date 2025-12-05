@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Analysis Result</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
@@ -16,38 +18,31 @@
 
     <img src="/static/{{ image_path }}" class="result-img">
 
-    <!-- Model Prediction Text -->
     <h2 class="result-text {{ label }}">
         {{ label }} ({{ confidence }}%)
     </h2>
 
-    <!-- Turbidity Value -->
-    <h3 style="margin-top: 20px;">Estimated Turbidity:</h3>
-    <p style="font-size: 20px; color:#a8e6ff;">{{ turbidity }}</p>
+    <h3>Estimated Turbidity:</h3>
+    <p class="value-text">{{ turbidity }}</p>
 
-    <!-- Dynamic Lab-Tested Range Sentence -->
     <h3>Lab-Tested Turbidity Range:</h3>
-    <p style="font-size: 20px; color:#a8e6ff;">
+    <p class="value-text">
         {% if label == "clean" %}
             Lab-tested turbidity range for clean water is around <b>0 NTU</b>.
         {% elif label == "moderate" %}
-            Lab-tested turbidity range for moderate water is between 
-            <b>0.1 – 3 NTU</b>.
+            Lab-tested turbidity range for moderate water is <b>0.1 – 3 NTU</b>.
         {% elif label == "dirty" %}
-            Lab-tested turbidity range for dirty water is 
-            <b>above 3 NTU</b>.
+            Lab-tested turbidity range for dirty water is <b>above 3 NTU</b>.
         {% else %}
-            Image does not contain water, so turbidity range is not applicable.
+            No water detected — turbidity range not applicable.
         {% endif %}
     </p>
 
-    <!-- What turbidity means -->
-    <div style="margin-top: 20px; font-size: 16px; color:#d4f5ff;">
-        <strong>Note:</strong> Turbidity tells how clear or cloudy the water is.  
-        Higher turbidity means more dirt, particles, or impurities in the water.
+    <div class="note">
+        <strong>Note:</strong> Turbidity tells how clear or cloudy the water is.
     </div>
 
-    <a href="/start" class="back-btn" style="margin-top: 20px;">Analyse Another Image</a>
+    <a href="/start" class="back-btn">Analyse Another Image</a>
 </div>
 
 </body>

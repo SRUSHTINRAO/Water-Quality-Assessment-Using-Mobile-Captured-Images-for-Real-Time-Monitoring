@@ -1,6 +1,3 @@
-/* ===============================
-   GLOBAL BACKGROUND + BODY
-=============================== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -9,38 +6,10 @@ body {
     overflow-x: hidden;
 }
 
-/* ===============================
-   DROPLET BACKGROUND
-=============================== */
-.droplet-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
+/* Droplet animation container */
+.droplet-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
 
-/* Individual droplet */
-.droplet {
-    position: absolute;
-    width: 8px;
-    height: 18px;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    filter: blur(1px);
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    0% { transform: translateY(-10vh); opacity: 1; }
-    100% { transform: translateY(110vh); opacity: 0; }
-}
-
-/* ===============================
-   GLASS CARDS
-=============================== */
+/* Glass card */
 .glass-card {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px);
@@ -48,52 +17,26 @@ body {
     border-radius: 18px;
     text-align: center;
     margin: 40px auto;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     z-index: 5;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
 }
 
-/* Hero Card (home page top section) */
+/* For large hero card on home page */
 .hero-card {
-    width: 70%;
-    margin-top: 60px;
+    max-width: 600px;
+    width: 90%;
 }
 
-/* ===============================
-   SECTIONS
-=============================== */
-.section-title {
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
-    margin-top: 40px;
-    color: #e6faff;
+/* Result image */
+.result-img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    margin: 0 auto;
 }
 
-/* Feature + FAQ Cards (Grid Layout) */
-.feature-cards, .faq-cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.feature-card, .faq-card {
-    width: 260px;
-    padding: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.feature-card:hover,
-.faq-card:hover {
-    transform: scale(1.06);
-}
-
-/* ===============================
-   BUTTONS
-=============================== */
+/* Buttons */
 .back-btn {
     display: inline-block;
     padding: 12px 20px;
@@ -101,108 +44,24 @@ body {
     color: white;
     border-radius: 12px;
     text-decoration: none;
-    font-size: 16px;
-    transition: 0.2s;
-}
-
-.back-btn:hover {
-    background: #0096c7;
-}
-
-/* ===============================
-   TABLE
-=============================== */
-table {
-    width: 80%;
-    margin: 50px auto;
-    border-collapse: collapse;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(25px);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-caption {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-/* Color-coded table rows */
-.Clean td { color: #00ff99; }
-.Moderate td { color: #ffcc66; }
-.Dirty td { color: #ff4d4d; }
-
-/* ===============================
-   RESULT PAGE
-=============================== */
-.result-image {
-    width: 300px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-}
-
-/* ===============================
-   MODAL POPUP FIX (MAIN FIX!)
-=============================== */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.65);
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;    /* IMPORTANT */
-}
-
-/* Modal box */
-.modal-content {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 30px;
-    width: 350px;
-    border-radius: 15px;
-    text-align: center;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-}
-
-/* Close button */
-.close-btn {
-    margin-top: 15px;
-    padding: 10px 16px;
-    background: #00b4d8;
-    border-radius: 12px;
-    color: white;
-    cursor: pointer;
-}
-.validation-note {
-    text-align: center;
-    width: 100%;
-    display: block;
-    margin: 25px auto;
     font-size: 18px;
-    color: #cceeff;
-    font-weight: 500;
 }
-/* --------------------------
-   RESULT PAGE IMAGE 
---------------------------- */
-.result-img {
-    width: 80%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    object-fit: cover;
-    margin: 0 auto;
-    display: block;
+
+.value-text {
+    font-size: 20px;
+    color: #a8e6ff;
+}
+
+.note {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #d4f5ff;
+}
+
+/* Responsive fix */
+@media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 20px; }
+    p { font-size: 16px; }
 }
