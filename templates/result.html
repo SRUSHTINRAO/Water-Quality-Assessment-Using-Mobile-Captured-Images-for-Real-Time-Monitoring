@@ -25,9 +25,21 @@
     <h3 style="margin-top: 20px;">Estimated Turbidity:</h3>
     <p style="font-size: 20px; color:#a8e6ff;">{{ turbidity }}</p>
 
-    <!-- Turbidity Range Classification -->
-    <h3>Turbidity Range Classification:</h3>
-    <p style="font-size: 20px; color:#a8e6ff;">{{ turbidity_range }}</p>
+    <!-- Dynamic Lab-Tested Range Sentence -->
+    <h3>Lab-Tested Turbidity Range:</h3>
+    <p style="font-size: 20px; color:#a8e6ff;">
+        {% if label == "clean" %}
+            Lab-tested turbidity range for clean water is around <b>0 NTU</b>.
+        {% elif label == "moderate" %}
+            Lab-tested turbidity range for moderate water is between 
+            <b>0.1 – 3 NTU</b>.
+        {% elif label == "dirty" %}
+            Lab-tested turbidity range for dirty water is 
+            <b>above 3 NTU</b>.
+        {% else %}
+            Image does not contain water, so turbidity range is not applicable.
+        {% endif %}
+    </p>
 
     <!-- What turbidity means -->
     <div style="margin-top: 20px; font-size: 16px; color:#d4f5ff;">
